@@ -11,5 +11,9 @@ console.log()
 var message = 'food'
 console.log(module)
 
-var logger = require('./logger')
-logger.log('Bismillah')
+// var logger = require('./logger')
+// logger.log('Bismillah')
+
+
+var log = require('./logger')
+log('Allah')
