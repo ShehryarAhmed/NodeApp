@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+app.use(express.json());
 
 var courses = [
     {id:1,name:'Quran'},
@@ -12,7 +13,9 @@ app.get('/',(req, res) => {
 });
 
 app.get('/api/salam',(req, res) => {
-    res.send([1, 2, 3,4,]);
+    // res.send([1, 2, 3,4,]); 
+    res.send(courses);
+
 });
 
 app.get('/api/salam/:id', (req, res) => {
@@ -23,6 +26,15 @@ app.get('/api/salam/:id', (req, res) => {
     // res.send(""+req.params+ ""+req.query);
     res.send(course)
 });
+
+app.post('/api/courses', (req, res) => {
+    const course = {
+        id: courses.length + 1,
+        name: req.body.name
+    };
+    courses.push(course);
+    res.send(course);
+})
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => console.log(`Listening on port ${port}`));
