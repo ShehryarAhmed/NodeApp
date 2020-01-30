@@ -2,7 +2,12 @@ const express = require('express');
 const Joi = require('joi');
 
 const app = express();
+
+app.set('view engine', 'pug');
+app.set('views', './views'); //default
+
 app.use(express.json());
+
 
 var courses = [
     {id:1,name:'Quran'},
@@ -11,7 +16,13 @@ var courses = [
 ]
 
 app.get('/',(req, res) => {
-    res.send("AssalamOAlikum")
+    // res.send("AssalamOAlikum")
+    res.render('index',{
+        title: 'Islam',
+        message: 'AssalamOAlikum',
+        viwers: 'Viwers'
+
+        })
 });
 
 app.get('/api/salam',(req, res) => {
