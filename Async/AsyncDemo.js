@@ -1,14 +1,48 @@
 
 console.log("First Line")
-const user = getUser(1);
+getUser(1, getUsers);
 
-
-console.log("User" , user)
-function getUser(id){
-    setTimeout(() => {
-        console.log("Second Line")
-},2000)
 
 console.log("Third Line")
 
+function getUser(id,callback){
+    setTimeout(() => {
+        console.log("Getting Userws")
+        callback({
+            id:id,gitHubUsername:'mosh'
+        });
+       
+},2000)}
+
+
+function getUserRepo(callback){
+    setTimeout(() => {
+        console.log("Getting Repo")
+        callback({
+            repo:['Repo1','Repo2','Repo3']
+        });
+},2000)}
+
+
+function getUserCommits(callback){
+    setTimeout(() => {
+        console.log("Getting Commits")
+        callback({
+            repo:['commit1','commit2','commit3']
+        });
+},2000)}
+
+function getUsers(User){
+    console.log(User)
+    getUserRepo(displayRepos)
+}
+
+function displayRepos(Repo){
+    console.log(Repo)
+    getUserCommits(displayCommits)
+}
+
+
+function displayCommits(commit){
+    console.log(commit)
 }
