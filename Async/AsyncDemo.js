@@ -1,7 +1,19 @@
 
 console.log("First Line")
-getUser(1, getUsers);
+// getUser(1, getUsers);
 
+const p = new Promise((resolve,rejected) => {
+    setTimeout(()=>{
+
+    // resolve(1)    
+    rejected(new Error('Message'))
+
+    },2000)
+}) 
+
+p
+.then(result => console.log('Result', result))
+.catch(err => console.log('Error',err.message))
 
 console.log("Third Line")
 
