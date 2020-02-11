@@ -2,7 +2,7 @@ const express = require('express');
 const Joi = require('joi');
 const courses = require('./routes/courses');
 const home = require('./routes/home');
-const home = require('./routes/home');
+// const home = require('./routes/home');
 const log = require('./middleware/logger');
 
 
