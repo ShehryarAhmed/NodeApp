@@ -1,6 +1,8 @@
 
 console.log("First Line")
 const user = getUser(1);
+
+
 console.log("User" , user)
 function getUser(id){
     setTimeout(() => {
